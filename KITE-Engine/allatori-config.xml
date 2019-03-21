@@ -1,0 +1,8 @@
+<config>
+    <keep-names>
+    </keep-names>
+    <jars>
+        <jar in="${obf.jar}" out="${obf.jar}"/>
+    </jars>
+    <property name="log-file" value="target/allatori-log.xml"/>
+</config>

@@ -1,0 +1,89 @@
+
+{
+    "name": "ch73_0",
+    "start": 1552476539604,
+    "stop": 1552476545568,
+    "description": "This example test opens google and searches for Cosmo Software Consulting and verify the first result",
+    "stage": "finished",
+    "status": "passed",
+    "parameters": [
+    ],
+    "steps": [
+        {
+            "name": "CustomGoogleSearchStep",
+            "start": 1552476540931,
+            "stop": 1552476542972,
+            "description": "Open https://google.com and look for CoSMo Software Consulting",
+            "stage": "finished",
+            "status": "passed",
+            "parameters": [
+            ],
+            "steps": [
+            ],
+            "attachments": [
+            ]
+        },
+        {
+            "name": "CustomGoogleFirstResultCheck",
+            "start": 1552476542972,
+            "stop": 1552476545509,
+            "description": "Open first result on Google result page and verify the page title",
+            "stage": "finished",
+            "status": "passed",
+            "parameters": [
+            ],
+            "steps": [
+            ],
+            "attachments": [
+                {
+                    "name": "Page-screenshot(2019-03-13 192904)",
+                    "type": "image/png",
+                    "source": "ea75299a-1f10-4b2c-a7a9-70f08f8377c5-attachment.png"
+                }
+            ]
+        }
+    ],
+    "attachments": [
+        {
+            "name": "Test's custom payload",
+            "type": "text",
+            "source": "1b96c8d3-e58c-4b3f-b57a-67e4c9003a1c-attachment.txt"
+        }
+    ],
+    "uuid": "d500a74c-dab4-4b19-bb96-1069d7b379c3",
+    "fullName": "com.cosmo.kite.example.KiteExampleTest",
+    "historyId": "2d544e9a-273b-4c31-b135-e799a8a4f9e1",
+    "links": [
+    ],
+    "labels": [
+        {
+            "name": "package",
+            "value": "package com.cosmo.kite.example"
+        },
+        {
+            "name": "testClass",
+            "value": "class com.cosmo.kite.example.KiteExampleTest"
+        },
+        {
+            "name": "testMethod",
+            "value": "execute"
+        },
+        {
+            "name": "host",
+            "value": "namvu"
+        },
+        {
+            "name": "parentSuite",
+            "value": "Kite test example (with Allure reporting)(2019-03-13 192853)"
+        },
+        {
+            "name": "suite",
+            "value": "KiteExampleTest Suite (2019-03-13 192853)"
+        }
+    ],
+    "statusDetails": {
+        "known": false,
+        "muted": false,
+        "flaky": false
+    }
+}

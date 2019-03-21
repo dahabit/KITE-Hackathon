@@ -1,0 +1,31 @@
+{
+  "name": "Kite test example (with Allure reporting)",
+  "callback": null,
+  "reportFolder" : "/home/nam/workSpace/BackEnd/KITEs/KITE.example/",
+  "remotes": [
+    {
+      "type": "local",
+      "remoteAddress": "http://192.168.1.33:4444/wd/hub"
+    }
+  ],
+  "tests": [
+    {
+      "name": "KiteExampleTest",
+      "tupleSize": 1,
+      "description": "This example test opens google and searches for Cosmo Software Consulting and verify the first result",
+      "testImpl": "com.cosmo.kite.example.KiteExampleTest",
+      "payload" : {
+        "test1": "ONE",
+        "test2": "TWO"
+      }
+    }
+  ],
+  "browsers": [
+    {
+      "browserName": "chrome",
+      "version": "72",
+      "platform": "LINUX",
+      "flags": []
+    }
+  ]
+}
