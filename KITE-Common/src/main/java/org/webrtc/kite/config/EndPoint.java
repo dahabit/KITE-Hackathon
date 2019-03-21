@@ -2,6 +2,7 @@ package org.webrtc.kite.config;
 
 import com.cosmo.kite.usrmgmt.AccountType;
 import com.cosmo.kite.usrmgmt.TypeRole;
+import org.apache.log4j.Logger;
 
 import javax.json.Json;
 import javax.json.JsonObject;

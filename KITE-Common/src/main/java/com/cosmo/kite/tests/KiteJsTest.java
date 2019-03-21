@@ -4,25 +4,11 @@
 
 package com.cosmo.kite.tests;
 
-import com.cosmo.kite.exception.KiteTestException;
-import com.cosmo.kite.testers.CallableTester;
-import com.cosmo.kite.util.TestUtils;
-import com.cosmo.kite.util.WebDriverUtils;
-import io.qameta.allure.model.Status;
 import org.apache.log4j.Logger;
-import org.openqa.selenium.WebDriver;
 import org.webrtc.kite.config.EndPoint;
-import org.webrtc.kite.exception.KiteGridException;
 
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObject;
-import javax.json.JsonObjectBuilder;
-import java.io.File;
-import java.util.*;
+import java.util.UUID;
 
-
-import static com.cosmo.kite.util.ReportUtils.getStackTrace;
 import static com.cosmo.kite.util.ReportUtils.timestamp;
 import static com.cosmo.kite.util.TestUtils.createDirs;
 import static com.cosmo.kite.util.TestUtils.printJsonTofile;

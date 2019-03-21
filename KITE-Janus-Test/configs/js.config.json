@@ -11,7 +11,7 @@
     {
       "name": "Janus test",
       "description":"interop test for Janus",
-      "tupleSize": 6,
+      "tupleSize": 2,
       "testImpl": "janus.js",
       "csvReport": true,
       "jsonReport": true,

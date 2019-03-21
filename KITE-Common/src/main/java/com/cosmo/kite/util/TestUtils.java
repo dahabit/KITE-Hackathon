@@ -270,20 +270,6 @@ public class TestUtils {
   }
   
   /**
-   * Create a directory if not existing
-   * @param dirName directory name
-   */
-  public static void createDirs(String dirName) {
-    if (!dirName.endsWith("/")) {
-      dirName += "/";
-    }
-    File dir = new File(dirName + "/");
-    if (!dir.exists()) {
-      dir.mkdirs();
-    }
-  }
-  
-  /**
    * Saves a JSON object into a file, with line breaks and indents.
    *
    * @param testName the name of the test, which will be inlcuded in the file name

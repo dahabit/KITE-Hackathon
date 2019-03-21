@@ -3,19 +3,20 @@ package com.cosmo.kite.tests;
 import com.cosmo.kite.exception.KiteTestException;
 import com.cosmo.kite.report.custom_kite_allure.AllureStepReport;
 import com.cosmo.kite.report.custom_kite_allure.AllureTestReport;
-import com.cosmo.kite.report.custom_kite_allure.CustomAttachment;
 import com.cosmo.kite.report.custom_kite_allure.Reporter;
+import com.cosmo.kite.report.custom_kite_allure.Status;
 import com.cosmo.kite.util.TestUtils;
-import io.qameta.allure.model.Status;
 
 import javax.json.JsonObject;
 import javax.json.JsonValue;
 import java.io.File;
 import java.util.List;
 
-import static com.cosmo.kite.entities.Timeouts.*;
+import static com.cosmo.kite.entities.Timeouts.ONE_SECOND_INTERVAL;
+import static com.cosmo.kite.entities.Timeouts.TEN_SECOND_INTERVAL;
 import static com.cosmo.kite.util.ReportUtils.getStackTrace;
-import static com.cosmo.kite.util.TestUtils.*;
+import static com.cosmo.kite.util.TestUtils.readJsonFile;
+import static com.cosmo.kite.util.TestUtils.waitAround;
 
 public class KiteJsCallable extends  KiteCallable {
   // todo set WORKING_DIR
