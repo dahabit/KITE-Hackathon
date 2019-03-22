@@ -11,7 +11,7 @@
     {
       "name": "Janus test",
       "description":"interop test for Janus",
-      "tupleSize": 2,
+      "tupleSize": 6,
       "testImpl": "janus.js",
       "csvReport": true,
       "jsonReport": true,
@@ -47,7 +47,7 @@
   "browsers": [
     {
       "browserName": "chrome",
-      "version": "72",
+      "version": "73",
       "platform": "WINDOWS",
       "fakeMediaFile": "/home/ubuntu/e-dv548_lwe08_christa_casebeer_003.y4m",
       "fakeMediaAudio": "/home/ubuntu/e-dv548_lwe08_christa_casebeer_003.wav",

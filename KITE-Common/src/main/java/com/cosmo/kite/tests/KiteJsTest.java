@@ -39,7 +39,7 @@ public class KiteJsTest extends KiteLoadTest {
     // not creating webdriver but write capabilities to temp dirs
     for (int index = 0; index < this.endPointList.size(); index ++) {
       EndPoint endpoint = this.endPointList.get(index);
-      createDirs(JS_PATH + tempPath + "/" + index);
+      createDirs(JS_PATH + tempPath + "/" + index + "/screenshots");
       printJsonTofile(endpoint.toString(), JS_PATH + tempPath + "/" + index + "/capabilities.json");
     }
   }

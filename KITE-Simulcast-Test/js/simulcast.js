@@ -1,7 +1,8 @@
 const TestUtils = require('./utils/TestUtils.js');
 const waitAround = TestUtils.waitAround;
 const WebDriverFactory = require('./utils/WebDriverFactory.js');
-const {JoinVideoCallStep, GetStatsStep} = require('./steps');
+const {LoadPageStep, GetStatsStep, StayInMeetingStep, TakeScreenshotStep, SelectProfileStep, GetGaugeStatStep} = require('./steps');
+const {CheckVideoStep} = require('./checks');
 const {Builder, By, Key, until, promise} = require('selenium-webdriver');
 
 // Global variables:
@@ -24,24 +25,25 @@ const payloadPath = reportPath + "/payload.json";
 const capabilities = require(capabilitiesPath);
 const payload = require(payloadPath);
 
-const timeout = payload.testTimeout * 1000;
+const timeout = 60 * 1000; // 60s
+const A_BIT = 3 * 1000; // 60s
 //console.log('<<<<<<- Found id ->>>>> ' + id);
 //console.log('<<<<<<- Found report path ->>>>> ' + reportPath);
 //console.log('<<<<<<- Found payload ->>>>> ' + JSON.stringify(payload));
 //console.log('<<<<<<- Found capabilities ->>>>> ' + JSON.stringify(capabilities));
 
-// Purge module from node's cache (not sure why)
-//TestUtils.purgeCache(capabilitiesPath);
-//TestUtils.purgeCache(payloadPath);
-
+const rids = ['a', 'b', 'c'];
+const tids = [1, 2, 3];
 
 function getRoomUrl() {
-  const roomid = Math.floor(id / payload.usersPerRoom);
-  if (roomid > payload.rooms.length) {
-    console.error('Not enough rooms');
-    return;
-  }
-  return payload.url + payload.rooms[roomid] + '&username=user' + Array(Math.max(3 - String(id).length + 1, 0)).join(0) + id;
+  return payload.url + '';
+}
+
+async function evaluateProfile(driver, testReport, rid, tid) {
+	await SelectProfileStep.execute(driver, testReport, rid, 0); // 0 ?
+	await StayInMeetingStep.execute(driver, testReport, A_BIT); // 3s seems reasonable for loading
+	await GetGaugeStatStep.execute(driver, testReport, rid, 0);
+	await TakeScreenshotStep.execute(driver, testReport, reportPath + '/' + id + "/screenshots", 'ScreenshotStep_'+rid+'0'+ '.png');
 }
 
 
@@ -51,23 +53,25 @@ function getRoomUrl() {
 	testReport['status'] = 'passed';
 	testReport['start'] = Date.now();
   testReport['steps'] = steps;
-	// todo: address comes from file
 	let driver;
   try {
 		driver = await WebDriverFactory.getDriver(capabilities, capabilities.remoteAddress)
-		await JoinVideoCallStep.execute(driver, testReport, getRoomUrl(), timeout);
-		const pcArray = [];
-		pcArray.push('window.pc'); // sent stats
-		for (let i = 0; i < numberOfParticipant -1 ; i++) {
-			pcArray.push('window.remotePc[' + i + ']');
+		await LoadPageStep.execute(driver, testReport, getRoomUrl(), timeout);
+		await waitAround(A_BIT);
+		await CheckVideoStep.execute(driver, testReport, 'local', timeout);
+		await CheckVideoStep.execute(driver, testReport, 'remote', timeout);
+		await TakeScreenshotStep.execute(driver, testReport, reportPath  + '/' + id + "/screenshots", 'ScreenshotStep_' + Date.now() + '.png');
+		for (let i = 0; i < rids.length; i++) {
+			await SelectProfileStep.execute(driver, testReport, rids[i], 0); // 0 ?
+			await GetGaugeStatStep.execute(driver, testReport, rids[i], 0);
+			await TakeScreenshotStep.execute(driver, testReport, reportPath + '/' + id + "/screenshots", 'ScreenshotStep_'+rids[i]+'-0'+ '.png');
 		}
-		await GetStatsStep.execute(driver, testReport, pcArray);
-		await waitAround(5000);
   } catch(e) {
-    console.error(e);
+    console.error('CAUGHT YA: ' +  e);
   } finally {
     await driver.quit();
   }
   testReport['stop'] = Date.now();
   TestUtils.writeToFile(resultFilePath,JSON.stringify(testReport));
+  console.log('FINISHED');
 })();

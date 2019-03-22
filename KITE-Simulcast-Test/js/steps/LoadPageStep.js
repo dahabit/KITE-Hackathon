@@ -9,7 +9,7 @@ module.exports = {
 		let result = 'passed';
 		let attachment = {};
 		attachment['type'] = 'json';
-    report['name'] = 'Open ' + url + ' and check the video';
+    report['name'] = 'Open ' + url + ' wait for page to load';
     report['start'] = Date.now();
     if (testReport.status === 'passed') {
 			try {
@@ -20,23 +20,11 @@ module.exports = {
           const s = await driver.executeScript("return document.readyState");
           return s === "complete";
         }, timeout);
-        // Wait for publishing button
-        console.log('Page loaded. Now wait for text "Publishing..."');
-        const publishingLocator = By.xpath("//b[text()='Publishing...']");
-        await driver.wait(until.elementLocated(publishingLocator));
-        let details = {};
-				// Verify videos
-				await TestUtils.waitForElement(driver, 'tagName', 'video', timeout);
-        const videoElements = await driver.findElements(By.tagName("video"));
-        const ids = await map(videoElements, e =>  e.getAttribute("id"));
-		    ids.forEach(async function(id) {
-		      const videoCheck = await TestUtils.verifyVideoDisplayById(driver, id);
-		      details['videoCheck_' + id] = videoCheck;
-		    });
-        attachment['value'] = details;
+        console.log('Page loaded');
       } catch (error) {
         result = 'failed';
         testReport['status'] = result;
+        attachment['value'] = '' + error;
         console.log(error);
       }
     } else {

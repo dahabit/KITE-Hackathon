@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
+import static com.cosmo.kite.entities.Timeouts.ONE_SECOND_INTERVAL;
 import static com.cosmo.kite.util.TestUtils.videoCheck;
 import static com.cosmo.kite.util.TestUtils.waitAround;
 
@@ -32,9 +33,9 @@ public class AllVideoCheck extends TestStep {
   @Override
   protected void step() throws KiteTestException {
     try {
-      logger.info("Looking for video elements");
       //wait a while to allow all videos to load.
-      waitAround(numberOfParticipants * 1000);
+      waitAround(numberOfParticipants * 3 * ONE_SECOND_INTERVAL);
+      logger.info("Looking for video elements");
       List<WebElement> videos = janusPage.getVideoElements();
       if (videos.size() < numberOfParticipants) {
         throw new KiteTestException(

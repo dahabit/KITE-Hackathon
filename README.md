@@ -79,7 +79,34 @@ mvn -DskipTests clean install
 
 ## C. Setup the Dashboard
 
-Install Allure from https://docs.qameta.io/allure/
+### Deploy and run the dashboard locally
+
+1.  Download compressed tomcat distribution, (version 8.5.20 at time of this writing) \[[*http://tomcat.apache.org/download-80.cgi\#8.5.20*](http://tomcat.apache.org/download-80.cgi#8.5.20)\]
+
+1.  Unzip/extract anywhere.
+
+1.  Copy ```KITE-Dashboard/target/kiteweb.war``` file to ```apache-tomcat-8.5.20/webapps```
+  * If the file ```KITE-Dashboard/target/kiteweb.war``` doesn't exist, rerun the build (previous step)
+
+4.  Start tomcat:
+
+| Windows  | Linux / Mac |
+| ------------- | ------------- |
+| cd apache-tomcat-8.5.20\bin  | cd apache-tomcat-8.5.20/bin  |
+| startup  | ./catalina.sh run  |
+
+_* if you cannot execute `catalina.sh`, try `sudo chmod 777 catalina.sh`_
+
+_** if_ `./catalina.sh run` _says_  `permission denied` _, try running it with sudo._
+
+5.  Now open a browser and access the following URL [*http://localhost:8080/kiteweb*](http://localhost:8080/kiteweb)
+
+6.  When test session finishes, stop tomcat:
+
+| Windows  | Linux / Mac |
+| ------------- | ------------- |
+| cd apache-tomcat-8.5.20\bin  | cd apache-tomcat-8.5.20/bin  |
+| shutdown  | ./shutdown.sh  |
 
 
 ## D. Run sample basic test

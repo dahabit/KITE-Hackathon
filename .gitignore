@@ -10,9 +10,9 @@ KITE-Engine/src/main/java/org/webrtc/kite/IceConnectionTest.java
 *package-lock.json
 node_modules
 
-/KITE-Janus-Test/results
+/KITE-*-Test/results
 results
 /lib
 allure-results
-/KITE-Janus-Test/js/temp
+/KITE-*-Test/js/temp
 dep.txt
