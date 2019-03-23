@@ -13,7 +13,8 @@ See LICENSE for licensing.
 ### Install prerequisite software
 
 * Install the browsers you would like to test, available for your machine. Chrome, Edge, Firefox and Safari are supported at this stage. See the wiki for some limitations or hints for each browser.
-* Make sure you have a recent Java JDK installed, at least Java 8 (e.g. from [*Java SE downloads*](http://www.oracle.com/technetwork/java/javase/downloads/index.html)). Sometimes it might be neccessary to set JAVA_HOME and add it to PATH for java to work properly. 
+* Make sure you have a JDK 1.8 (Java 8) installed. It can be downloaded at https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html. Sometimes it might be neccessary to set JAVA_HOME and add it to PATH for Java and Maven to work properly.
+NOTE: KITE is not compatible with Java 11.
 
 ### Download webdrivers and selenium server standalone
 
@@ -63,19 +64,9 @@ https://github.com/ManuCosmo/KITE-Hackathon.git
 2. Build and install running the command
 
 ```
-mvn clean install
-```
-
-* If mvn (maven) is not recognisable by the system, you might need to set MAVEN_HOME and add it to PATH.
-
-* If selenium is not running (step mentioned above), build will fail, as KITE-AppRTC-Test includes a Junit test that requires local selenium.
-
-These servers listen to port 8081, 8083, 8085 respectively.
-
-You can skip all tests (not recommended) running maven with -DskipTests.
-```
 mvn -DskipTests clean install
 ```
+
 
 ## C. Setup the Dashboard
 
