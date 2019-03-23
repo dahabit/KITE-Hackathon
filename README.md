@@ -57,7 +57,7 @@ Build uses [*maven*](https://maven.apache.org/) tool. Installable maven packages
 Download this repository and extract it to your local folder or clone it with
 
 ```
-https://github.com/CoSMoSoftware/KITE.git
+https://github.com/ManuCosmo/KITE-Hackathon.git
 ```
 
 2. Build and install running the command

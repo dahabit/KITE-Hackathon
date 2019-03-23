@@ -9,13 +9,13 @@
   ],
   "tests": [
     {
-      "name": "Medooze Simulcast VP8 %ts",
-      "description":"Simulcast Test for Medooze with VP8 codec",
+      "name": "Medooze Simulcast H.264 %ts",
+      "description":"Simulcast Test for Medooze with H.264 codec",
       "tupleSize": 1,
       "noOfThreads": 2,
       "testImpl": "simulcast.js",
       "payload":{
-        "url": "https://playground.cosmosoftware.io/simulcast/index.html?codec=vp8",
+        "url": "https://playground.cosmosoftware.io/simulcast/index.html?codec=h264",
         "takeScreenshotForEachTest": true,
         "testTimeout": 20,
         "getStats": true,

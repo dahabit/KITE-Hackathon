@@ -57,8 +57,8 @@
       "version": "75",
       "platform": "WINDOWS",
       "windowSize": "1280,800",
-      "fakeMediaFile": "D:\\Videos\\Samples\\y4m\\avenger_trailer.y4m",
-      "fakeMediaAudio": "D:\\Videos\\Samples\\y4m\\avenger_trailer.wav",
+      "_fakeMediaFile": "D:\\Videos\\Samples\\y4m\\avenger_trailer.y4m",
+      "_fakeMediaAudio": "D:\\Videos\\Samples\\y4m\\avenger_trailer.wav",
       "headless": false
     },
     {
