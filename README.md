@@ -70,7 +70,7 @@ mvn -DskipTests clean install
 
 ## C. Setup the Dashboard
 
-Download Allure 2.7.0 from https://bintray.com/qameta/generic/allure2/2.7.0#files/io%2Fqameta%2Fallure%2Fallure%2F2.7.0
+Download Allure 2.7.0 from [*https://bintray.com/qameta/generic/allure2/2.7.0#files*](https://bintray.com/qameta/generic/allure2/2.7.0#files)
 Unzip anywhere and add the bin/ to your PATH.
 To verify allure is installed:
 ```
