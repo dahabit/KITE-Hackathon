@@ -9,13 +9,13 @@ import org.openqa.selenium.support.PageFactory;
 public class GoogleSearchPage extends BasePage {
   
   @FindBy(className="gLFyf")
-  WebElement searhBar;
+  WebElement searchBar;
   
   public GoogleSearchPage(WebDriver webDriver) {
     super(webDriver);
   }
   
   public void searchFor(String target) {
-    searhBar.sendKeys(target + "\n");
+    searchBar.sendKeys(target + "\n");
   }
 }

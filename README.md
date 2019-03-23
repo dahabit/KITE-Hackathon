@@ -70,10 +70,18 @@ mvn -DskipTests clean install
 
 ## C. Setup the Dashboard
 
-Install Allure from https://docs.qameta.io/allure/
+Download Allure 2.7.0 from https://bintray.com/qameta/generic/allure2/2.7.0#files/io%2Fqameta%2Fallure%2Fallure%2F2.7.0
+Unzip anywhere and add the bin/ to your PATH.
+To verify allure is installed:
+```
+D:\>allure --version
+2.7.0
+```
+
 
 
 ## D. Run sample basic test
+
 
 ### Choose and edit your test run configuration
 
@@ -201,19 +209,4 @@ To deploy the Allure report:
 allure serve PATH_TO/kite-allure-reports
 ```
 
-# II. Distributed Test setup
-
-## Setup Dashboard
-
-KITE-Dashboard can be setup on any machine as described in previous section, you will need to change the callback url in your config file accordingly.
-
-## Setup a hosted test service account
-
-SauceLabs, BrowserStack and TestingBot have been tested and are supported.
-
-See example files in ```KITE-AppRTC-Test/configs``` mixing different hosted test services.
-
-Complete the fields username and accesskey appropriately.
-
-* Don't forget to modify the example browsers, versions and platforms to suit your needs.
 
