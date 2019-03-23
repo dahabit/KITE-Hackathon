@@ -4,6 +4,7 @@ import com.cosmo.kite.exception.KiteTestException;
 import com.cosmo.kite.report.custom_kite_allure.Reporter;
 import com.cosmo.kite.report.custom_kite_allure.Status;
 import com.cosmo.kite.simulcast.pages.MedoozeLoopbackPage;
+import com.cosmo.kite.simulcast.pages.SimulcastPageBase;
 import com.cosmo.kite.steps.TestStep;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,15 +19,16 @@ import static com.cosmo.kite.util.TestUtils.waitAround;
 
 public abstract class VideoCheckBase extends TestStep {
 
-  protected final MedoozeLoopbackPage medoozeLoopbackPage = new MedoozeLoopbackPage(this.webDriver);
+  protected final SimulcastPageBase page;
 
-  public VideoCheckBase(WebDriver webDriver) {
+  public VideoCheckBase(WebDriver webDriver, SimulcastPageBase page) {
     super(webDriver);
+    this.page = page;
   }
 
   protected void step(String direction) throws KiteTestException {
     try {
-      List<WebElement> videos = medoozeLoopbackPage.getVideoElements();
+      List<WebElement> videos = page.getVideoElements();
       if (videos.isEmpty()) {
         throw new KiteTestException(
             "Unable to find any <video> element on the page", Status.FAILED);

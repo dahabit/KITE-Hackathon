@@ -1,5 +1,6 @@
 package com.cosmo.kite.simulcast.steps;
 
+import com.cosmo.kite.simulcast.pages.JanusLoopbackPage;
 import com.cosmo.kite.steps.TestStep;
 import org.openqa.selenium.WebDriver;
 
@@ -26,5 +27,8 @@ public class LoadPageStep extends TestStep {
   protected void step() {
     loadPage(webDriver, url, 20);
     waitAround(ONE_SECOND_INTERVAL);
+    if (url.contains("meetecho")) {
+      new JanusLoopbackPage(webDriver).clickButton();
+    }
   }
 }

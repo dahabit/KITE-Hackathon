@@ -10,13 +10,10 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class MedoozeLoopbackPage {
+import static com.cosmo.kite.util.WebDriverUtils.executeJsScript;
 
-  private static final Logger logger = Logger.getLogger(MedoozeLoopbackPage.class.getName());
-  private final WebDriver webDriver;
-  
-  @FindBy(tagName="video")
-  private List<WebElement> videos;
+public class MedoozeLoopbackPage extends SimulcastPageBase {
+
 
   @FindBy(id="s_s_w")
   private List<WebElement> gaugesWidth;
@@ -34,18 +31,9 @@ public class MedoozeLoopbackPage {
   private List<WebElement> buttons;
 
   public MedoozeLoopbackPage(WebDriver webDriver) {
-    this.webDriver = webDriver;
+    super(webDriver);
     PageFactory.initElements(webDriver, this);
   }
-
-  /**
-   *
-   * @return the list of video elements
-   */
-  public List<WebElement> getVideoElements() {
-    return videos;
-  }
-
 
   /**
    *
@@ -54,6 +42,7 @@ public class MedoozeLoopbackPage {
    * @param rid the rid
    * @param tid the tid
    */
+  @Override
   public void clickButton(String rid, int tid) {
     for(WebElement b:buttons) {
       if (b.getAttribute("data-rid").equalsIgnoreCase(rid)
@@ -69,6 +58,7 @@ public class MedoozeLoopbackPage {
    *
    * @return LoopbackStats
    */
+  @Override
   public LoopbackStats getLoopbackStats() {
     return new LoopbackStats(
         gaugesWidth.get(0).getText(),
@@ -80,4 +70,5 @@ public class MedoozeLoopbackPage {
         gaugesFPS.get(1).getText(),
         gaugesBW.get(1).getText());
   }
+
 }

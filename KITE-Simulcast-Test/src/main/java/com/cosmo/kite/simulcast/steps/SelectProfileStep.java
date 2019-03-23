@@ -1,6 +1,7 @@
 package com.cosmo.kite.simulcast.steps;
 
 import com.cosmo.kite.simulcast.pages.MedoozeLoopbackPage;
+import com.cosmo.kite.simulcast.pages.SimulcastPageBase;
 import com.cosmo.kite.steps.TestStep;
 import org.openqa.selenium.WebDriver;
 
@@ -9,14 +10,14 @@ import static com.cosmo.kite.util.TestUtils.waitAround;
 
 public class SelectProfileStep extends TestStep {
 
-  private final MedoozeLoopbackPage loopbackPage;
+  private final SimulcastPageBase loopbackPage;
 
   private final String rid;
   private final int tid;
 
-  public SelectProfileStep(WebDriver webDriver, String rid, int tid) {
+  public SelectProfileStep(WebDriver webDriver, SimulcastPageBase page, String rid, int tid) {
     super(webDriver);
-    this.loopbackPage = new MedoozeLoopbackPage(webDriver);
+    this.loopbackPage = page;
     this.rid = rid;
     this.tid = tid;
   }

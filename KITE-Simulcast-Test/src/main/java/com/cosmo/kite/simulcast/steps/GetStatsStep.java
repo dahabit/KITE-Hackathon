@@ -16,13 +16,15 @@ public class GetStatsStep extends TestStep {
   private final int statsCollectionTime;
   private final int statsCollectionInterval;
   private final JsonArray selectedStats;
+  private final String pcName;
 
   public GetStatsStep(WebDriver webDriver, int statsCollectionTime,
-                      int statsCollectionInterval, JsonArray selectedStats) {
+                      int statsCollectionInterval, JsonArray selectedStats, String pcName) {
     super(webDriver);
     this.statsCollectionTime = statsCollectionTime;
     this.statsCollectionInterval = statsCollectionInterval;
     this.selectedStats = selectedStats;
+    this.pcName = pcName;
   }
   
   
@@ -35,7 +37,7 @@ public class GetStatsStep extends TestStep {
   protected void step() throws KiteTestException {
     try {
       JsonObject stats =
-        getPCStatOvertime(webDriver, "pc", statsCollectionTime, statsCollectionInterval,
+        getPCStatOvertime(webDriver, pcName, statsCollectionTime, statsCollectionInterval,
           selectedStats);
       /*
       JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();

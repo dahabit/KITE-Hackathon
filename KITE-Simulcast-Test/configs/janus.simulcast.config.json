@@ -1,0 +1,101 @@
+{
+  "type": 1,
+  "name": "Janus Simulcast %ts",
+  "permute": false,
+  "remotes": [
+    {
+      "type": "local",
+      "remoteAddress": "http://localhost:4444/wd/hub"
+    }
+  ],
+  "_test_off" : [
+    {
+      "name": "Janus Simulcast H.264 %ts",
+      "description":"Simulcast Test for Janus with H.264 codec",
+      "tupleSize": 1,
+      "noOfThreads": 2,
+      "testImpl": "com.cosmo.kite.simulcast.KiteJanusTest",
+      "payload":{
+        "url": "https://d10.conf.meetecho.com/ietf104/echotest.html?simulcast2=true&vcodec=h264",
+        "takeScreenshotForEachTest": true,
+        "testTimeout": 20,
+        "getStats": true,
+        "statsCollectionTime" : 2,
+        "statsCollectionInterval" : 1,
+        "selectedStats": ["inbound-rtp", "outbound-rtp", "candidate-pair"]
+      }
+    }
+  ],
+  "tests": [
+    {
+      "name": "Janus Simulcast VP8 %ts",
+      "description":"Simulcast Test for Janus with VP8 codec",
+      "tupleSize": 1,
+      "noOfThreads": 2,
+      "testImpl": "com.cosmo.kite.simulcast.KiteJanusTest",
+      "payload":{
+        "url": "https://d10.conf.meetecho.com/ietf104/echotest-cap.html?simulcast2=true&vcodec=vp8",
+        "takeScreenshotForEachTest": true,
+        "testTimeout": 20,
+        "bandwidthCheckDuration" : 120,
+        "checkSimulcast": false,
+        "getStats": true,
+        "statsCollectionTime" : 2,
+        "statsCollectionInterval" : 1,
+        "selectedStats": ["inbound-rtp", "outbound-rtp", "candidate-pair"]
+      }
+    }
+  ],
+  "browsers": [
+    {
+      "browserName": "chrome",
+      "version": "75",
+      "platform": "WINDOWS",
+      "windowSize": "1280,800",
+      "fakeMediaFile": "D:\\Videos\\Samples\\y4m\\avenger_trailer.y4m",
+      "fakeMediaAudio": "D:\\Videos\\Samples\\y4m\\avenger_trailer.wav",
+      "headless": false
+    }
+  ],
+  "_browsers_list": [
+    {
+      "browserName": "chrome",
+      "version": "73",
+      "platform": "WINDOWS",
+      "windowSize": "1280,800",
+      "fakeMediaFile": "D:\\Videos\\Samples\\y4m\\avenger_trailer.y4m",
+      "fakeMediaAudio": "D:\\Videos\\Samples\\y4m\\avenger_trailer.wav",
+      "headless": false
+    },
+    {
+      "browserName": "firefox",
+      "windowSize": "1280,800",
+      "version": "65",
+      "platform": "WINDOWS",
+      "headless": false
+    },
+    {
+      "browserName": "edge",
+      "version": "42",
+      "platform": "WINDOWS",
+      "headless": false
+    },
+    {
+      "browserName": "chrome",
+      "version": "72",
+      "platform": "LINUX",
+      "windowSize": "1280,800",
+      "gateway": "gw1",
+      "fakeMediaFile": "/home/ubuntu/e-dv548_lwe08_christa_casebeer_003.y4m",
+      "fakeMediaAudio": "/home/ubuntu/e-dv548_lwe08_christa_casebeer_003.wav",
+      "headless": true
+    },
+    {
+      "browserName": "firefox",
+      "windowSize": "1280,800",
+      "version": "65",
+      "platform": "LINUX",
+      "headless": true
+    }
+  ]
+}
