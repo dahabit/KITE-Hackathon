@@ -6,6 +6,10 @@
   "scripts": {
     "test": "test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ManuCosmo/KITE-Hackathon.git"
+  },
   "author": "emmanuel.andre@cosmosoftware.io",
   "license": "ISC",
   "dependencies": {

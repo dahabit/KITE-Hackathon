@@ -5,8 +5,6 @@ KITE-*/*.iml
 KITE-*/target
 KITE-*/.*
 kite-allure-reports
-KITE-Engine/src/main/java/org/webrtc/kite/KiteTest.java
-KITE-Engine/src/main/java/org/webrtc/kite/IceConnectionTest.java
 *package-lock.json
 node_modules
 
@@ -16,4 +14,4 @@ results
 allure-results
 /KITE-*-Test/js/temp
 dep.txt
-/KITE-Common/js/installDir
+/node

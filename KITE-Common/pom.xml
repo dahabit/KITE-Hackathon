@@ -30,7 +30,7 @@
         <configuration>
           <workingDirectory>js/</workingDirectory>
           <!-- where to install npm -->
-          <installDirectory>js/installDir</installDirectory>
+          <installDirectory>../</installDirectory>
         </configuration>
         <executions>
           <execution>
