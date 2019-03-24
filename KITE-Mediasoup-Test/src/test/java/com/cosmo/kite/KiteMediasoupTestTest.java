@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import static com.cosmo.kite.util.TestHelper.jsonToString;
+
 public class KiteMediasoupTestTest extends TestCase {
 
   static {
@@ -35,18 +37,13 @@ public class KiteMediasoupTestTest extends TestCase {
   }
 
   //Logger must be called after setting the system property "current.data"
-  private static final Logger logger = Logger.getLogger(KiteMediasoupTestTest.class.getName());
+  private final Logger logger = Logger.getLogger(this.getClass().getName());
 
-  private static final String SELENIUM_SERVER_URL = "http://localhost:4444/wd/hub";
-    private static String url = "https://lbclient.cosmosoftware.io/videoroomtest_videoanalysis.html?roomId=";
-//  private static String url = "https://soleil.kite.cosmosoftware.io/viewer/";
   private static final String TEST_NAME = "Mediasoup UnitTest";
   private static final String CONFIG_FILE = "configs/local.mediasoup.config.json";
 
   private List<WebDriver> webDriverList = new ArrayList<>();
   private List<EndPoint> endPointList = TestUtils.getEndPointList(CONFIG_FILE, "browsers");
-
-  private static final String platform = Utility.getPlatform();
 
   public void setUp() throws Exception {
     super.setUp();
@@ -69,5 +66,6 @@ public class KiteMediasoupTestTest extends TestCase {
     test.setPayload(TestUtils.getPayload(CONFIG_FILE, 0));
     test.setEndPointList(endPointList);
     JsonObject testResult = test.execute();
+    logger.info("Test result = \r\n" + jsonToString(testResult));
   }
 }

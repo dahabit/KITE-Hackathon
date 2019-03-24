@@ -17,17 +17,9 @@ import static org.webrtc.kite.Utility.getStackTrace;
 
 public class KiteMediasoupTest extends KiteLoadTest {
 
-
-  private static final Logger logger = Logger.getLogger(KiteMediasoupTest.class.getName());
-
-  private String testType;
-
+  private final Logger logger = Logger.getLogger(this.getClass().getName());
 
   private int loadReachTime = 0;
-  private int reconnectionDelay = 0;
-  private int reconnectionRandom = 0;
-  private int chanceOfMeetingEnded = 0;
-  private int checkStatusPeriod = 0;
 
   
   @Override
@@ -37,24 +29,15 @@ public class KiteMediasoupTest extends KiteLoadTest {
     String[] rooms = null;
     if (jsonPayload != null) {
       testName = jsonPayload.getString("name", "Mediasoup Load Test");
-      testType = jsonPayload.getString("testType", null);
       loadReachTime = jsonPayload.getInt("loadReachTime", loadReachTime);
       expectedTestDuration = Math.max(expectedTestDuration, (loadReachTime + 300)/60);
-      reconnectionDelay = jsonPayload.getInt("reconnectionDelay", reconnectionDelay);
-      reconnectionRandom = jsonPayload.getInt("reconnectionRandom", reconnectionRandom);
       maxUsersPerRoom = jsonPayload.getInt("usersPerRoom", 0);
-      chanceOfMeetingEnded = jsonPayload.getInt("chanceOfMeetingEnded", 0);
-      checkStatusPeriod = jsonPayload.getInt("checkStatusPeriod", 0);
       JsonArray jsonArray = jsonPayload.getJsonArray("rooms");
       rooms = new String[jsonArray.size()];
       for (int i = 0; i < jsonArray.size(); i++) {
         rooms[i] = jsonArray.getString(i);
       }
     }
-    if (testType == null) {
-      logger.error("testType cannot be empty. Options are:\r\nviewer, publisher, 1room, krooms");
-    }
-    testType = testType.toLowerCase();
     KiteLoadTest.roomManager = RoomManager.getInstance(url, maxUsersPerRoom);
     if (rooms != null) {
       roomManager.setRoomNames(rooms);

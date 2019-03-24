@@ -14,14 +14,10 @@ import java.util.List;
 public class MediasoupPage {
 
   private final WebDriver webDriver;
-
-  private final String PUBLISHING = "//b[text()='Publishing...']";
   
   @FindBy(tagName="video")
   private List<WebElement> videos;
 
-  @FindBy(xpath=PUBLISHING)
-  private WebElement publishing;
 
   public MediasoupPage(WebDriver webDriver) {
     this.webDriver = webDriver;
@@ -36,8 +32,7 @@ public class MediasoupPage {
    */
   public void videoIsPublishing(int timeout) throws TimeoutException {
     WebDriverWait wait = new WebDriverWait(webDriver, timeout);
-    WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(PUBLISHING)));
-    wait.until(ExpectedConditions.invisibilityOf(element));
+    wait.until(ExpectedConditions.visibilityOf(videos.get(0)));
   }
 
   /**

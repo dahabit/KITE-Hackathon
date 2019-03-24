@@ -73,6 +73,7 @@
     <module>KITE-Common</module>
     <module>KITE-Engine</module>
     <module>KITE-Example-Test</module>
+    <module>KITE-Mediasoup-Test</module>
     <module>KITE-Janus-Test</module>
     <module>KITE-Simulcast-Test</module>
   </modules>

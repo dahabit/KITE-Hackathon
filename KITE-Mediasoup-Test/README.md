@@ -6,10 +6,10 @@ Script designed at the IETF104 Hackathon
 ## Test Script
 
 
-1.	Open URL https://v3demo.mediasoup.org?roomId=meetingID&username=userID
+1.	Open URL https://v3demo.mediasoup.org?roomId=<meetingID>&username=<userID>
 2.	Check the published video
 3.	Check received videos from all participants
-4.	GetStats on all the peerConnections
+4.	GetStats on all the peerConnections (optional)
 5.	Take a screenshot
 6.	Stay in the meeting until the end of the test
 
@@ -29,12 +29,12 @@ To run this test you will need a Selenium Grid with at least **K** instance of C
 Set the address of your Selenium Hub:  
   `"remoteAddress": "http://localhost:4444/wd/hub"`  
   
-Set your Chrome version and OS according to what is available on your Grid. The test has been written specifically for Chrome. Some functionality will not work on other web browsers.
+Set your Browser(s) name(s), version(s) and OS/platform(s) according to what is available on your Grid.
 ```
 "browsers": [
     {
       "browserName": "chrome",
-      "version": "72",
+      "version": "73",
       "platform": "WINDOWS",
       "headless": false
     }
@@ -73,15 +73,23 @@ mvn -DskipTests clean install
 
 ## Run
 
-Under the KITE-Mediasoup-Test/ folder, execute:  
+Under the KITE-Mediasoup-Test/ folder, execute;
+
+On Windows:
 ```
-java -cp ../KITE-Engine/target/kite-jar-with-dependencies.jar;../KITE-Common/target/kite-common-1.0-SNAPSHOT.jar;target/mediasoup-test-1.0-SNAPSHOT.jar org.webrtc.kite.Engine configs/local.mediasoup.config.json
+java -cp ../KITE-Engine/target/kite-jar-with-dependencies.jar;../KITE-Common/target/kite-common-1.0-SNAPSHOT.jar;../KITE-Engine-IF/target/kite-if-1.0-SNAPSHOT.jar;../KITE-Engine/target/kite-engine-1.0-SNAPSHOT.jar;target/mediasoup-test-1.0-SNAPSHOT.jar org.webrtc.kite.Engine configs/local.mediasoup.config.json
 ```
+
+On Linux/Mac, replace semi-colons ';' with colons ':':
+```
+java -cp ../KITE-Engine/target/kite-jar-with-dependencies.jar:../KITE-Common/target/kite-common-1.0-SNAPSHOT.jar:../KITE-Engine-IF/target/kite-if-1.0-SNAPSHOT.jar:../KITE-Engine/target/kite-engine-1.0-SNAPSHOT.jar:target/mediasoup-test-1.0-SNAPSHOT.jar org.webrtc.kite.Engine configs/local.mediasoup.config.json
+```
+
 
 
 ## Test output
 
-Each will generate allure report found in `kite-allure-report/` folder.
+Each run will generate an Allure report which can be found in `kite-allure-report/` folder.
 To run Allure:
 ```
 allure serve kite-allure-reports
