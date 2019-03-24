@@ -16,3 +16,4 @@ results
 allure-results
 /KITE-*-Test/js/temp
 dep.txt
+/KITE-Common/js/installDir

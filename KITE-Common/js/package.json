@@ -1,0 +1,18 @@
+{
+  "name": "kite-common-js-lib",
+  "version": "0.1.1",
+  "description": "KITE Common JS Lib",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ManuCosmo/KITE-Hackathon.git"
+  },
+  "author": "emmanuel.andre@cosmosoftware.io",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  }
+}
