@@ -62,12 +62,6 @@
       <version>${kite.junit.version}</version>
       <scope>test</scope>
     </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${kite.testng.version}</version>
-      <scope>compile</scope>
-    </dependency>
   </dependencies>
 
 </project>

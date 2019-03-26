@@ -32,7 +32,6 @@
     <kite.org.json.version>20180130</kite.org.json.version>
     <kite.allure-java-common.version>2.10.0</kite.allure-java-common.version>
     <kite.allure2-model-pojo.version>1.0.0</kite.allure2-model-pojo.version>
-    <kite.allure-testng.version>2.7.0</kite.allure-testng.version>
     <kite.jackson-annotations.version>2.9.8</kite.jackson-annotations.version>
 
     <!-- Utility dependencies -->
@@ -63,9 +62,13 @@
     <kite.appium.version>6.1.0</kite.appium.version>
 
     <!-- Test framework dependencies -->
-    <kite.testng.version>7.0.0-beta1</kite.testng.version>
     <kite.junit.version>4.12</kite.junit.version>
     <kite.junit-jupiter-api.version>5.0.0</kite.junit-jupiter-api.version>
+
+
+    <!-- Node and NPM  -->
+    <kite.node.version>v8.11.3</kite.node.version>
+    <kite.npm.version>6.9.0</kite.npm.version>
 
   </properties>
 

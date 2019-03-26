@@ -1,7 +1,5 @@
 {
   "name": "Kite test example (with Allure reporting)",
-  "callback": null,
-  "reportFolder" : "/home/nam/workSpace/BackEnd/KITEs/KITE.example/",
   "remotes": [
     {
       "type": "local",

@@ -11,17 +11,9 @@ import junit.framework.TestCase;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.webrtc.kite.Utility;
-import org.webrtc.kite.config.Browser;
-import org.webrtc.kite.wdmgmt.WebDriverFactory;
 import org.webrtc.kite.config.EndPoint;
 
-import javax.json.Json;
-import javax.json.JsonArray;
 import javax.json.JsonObject;
-import javax.json.JsonReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -34,12 +26,6 @@ public class KiteJanusTestTest extends TestCase {
     System.setProperty("current.date", dateFormat.format(new Date()));
   }
 
-  //Logger must be called after setting the system property "current.data"
-  private static final Logger logger = Logger.getLogger(KiteJanusTestTest.class.getName());
-
-  private static final String SELENIUM_SERVER_URL = "http://localhost:4444/wd/hub";
-    private static String url = "https://lbclient.cosmosoftware.io/videoroomtest_videoanalysis.html?roomId=";
-//  private static String url = "https://soleil.kite.cosmosoftware.io/viewer/";
   private static final String TEST_NAME = "Janus UnitTest";
   private static final String CONFIG_FILE = "configs/local.janus.config.json";
 

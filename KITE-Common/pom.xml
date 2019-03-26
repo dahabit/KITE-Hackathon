@@ -40,8 +40,8 @@
             </goals>
             <phase>generate-resources</phase>
             <configuration>
-              <nodeVersion>v8.11.3</nodeVersion>
-              <npmVersion>6.9.0</npmVersion>
+              <nodeVersion>${kite.node.version}</nodeVersion>
+              <npmVersion>${kite.npm.version}</npmVersion>
             </configuration>
           </execution>
           <execution>
@@ -86,11 +86,6 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>${kite.junit-jupiter-api.version}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>${kite.testng.version}</version>
     </dependency>
     <dependency>
       <groupId>io.appium</groupId>
